@@ -3,8 +3,8 @@
   "packageManager": "yarn@3.6.0",
   "version": "0.1.0",
   "description": "A small utility to estimate the gas fee for the Ethereum transactions. It supports legacy fee and EIP-1559 fee.",
-  "main": "index.ts",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "ethereum",
     "gas",
