@@ -1,5 +1,5 @@
 import chai, { expect } from "chai";
-import chaiAsPromised from 'chai-as-promised';
+import chaiAsPromised from "chai-as-promised";
 import { ethers } from "ethers";
 import ganache, {Server as GanacheServer} from "ganache";
 import {gasFee, gasFeeTracker, IGasFee, IGasFeeTracker} from "../src"

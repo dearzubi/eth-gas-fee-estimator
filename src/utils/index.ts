@@ -3,7 +3,7 @@ import { IGasFee} from "types";
 export const getEIP1559GasFee = (
   baseFee: bigint, 
   maxPriorityFee: bigint,
-  priorityFeeBufferPercent: number = 0,
+  priorityFeeBufferPercent = 0,
 ): IGasFee => {
   const buffer = Math.round((Number(maxPriorityFee) * priorityFeeBufferPercent));
   maxPriorityFee = maxPriorityFee + BigInt(buffer);
@@ -28,7 +28,7 @@ export const avg = (arr: number[]) => {
   const sum = arr.reduce((a, v) => a + v);
   return Math.round(sum/arr.length);
 }
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const formatFeeHistory = (
   result: any, 
   numberOfBlocks: number,

@@ -12,12 +12,13 @@ import * as utils from "utils";
  */
 export async function gasFee(
   provider: ethers.JsonRpcProvider, 
-  legacy: boolean = false,
-  priorityFeeBufferPercent: number = 0,
+  legacy = false,
+  priorityFeeBufferPercent = 0,
 ): Promise<GasFee> {
   if (priorityFeeBufferPercent < 0 || priorityFeeBufferPercent > 1) {
     throw new Error("priorityFeeBufferPercent must be between 0 and 1");
   }
+  /* eslint-disable prefer-const */
   let [legacyFee, block] = await Promise.all([
     provider.send("eth_gasPrice", []),
     provider.getBlock("latest"),
@@ -30,7 +31,7 @@ export async function gasFee(
   }else{
     throw new Error("Block does not have baseFeePerGas. Please use legacy gas fee.");
   }
-};
+}
 
 /**
   * This function returns the estimated gas fees to be paid for a transaction at slow, average, and fast speeds.
@@ -44,7 +45,7 @@ export async function gasFee(
 
 export async function gasFeeTracker(
   provider: ethers.JsonRpcProvider,
-  numberOfBlocks: number = 10,
+  numberOfBlocks = 10,
   percentilesList: number[] = [25, 50, 75]
 ): Promise<GasFeeTracker> {
   percentilesList = percentilesList.sort()
@@ -54,6 +55,7 @@ export async function gasFeeTracker(
     provider.getBlock("latest"),
   ]);
   history = utils.formatFeeHistory(history, numberOfBlocks);
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const slowPriorityFee    = BigInt(utils.avg(history.map((b: any) => parseInt(b.priorityFeePerGas[0]))));
   const averagePriorityFee = BigInt(utils.avg(history.map((b: any) => parseInt(b.priorityFeePerGas[1]))));
   const fastPriorityFee    = BigInt(utils.avg(history.map((b: any) => parseInt(b.priorityFeePerGas[2]))));
@@ -67,4 +69,4 @@ export async function gasFeeTracker(
       fast: fast,
     }
   }
-};
+}
