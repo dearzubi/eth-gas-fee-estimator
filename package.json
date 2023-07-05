@@ -1,0 +1,41 @@
+{
+  "name": "eth-gas-fee-estimator",
+  "packageManager": "yarn@3.6.0",
+  "version": "0.1.0",
+  "description": "Estimate gas fees for Ethereum transactions",
+  "main": "index.ts",
+  "types": "index.d.ts",
+  "keywords": [
+    "ethereum",
+    "gas",
+    "fee",
+    "estimator",
+    "tracker"
+  ],
+  "author": {
+    "name": "Zubair Khalid",
+    "email": "zubairkhaidce@gmail.com"
+  },
+  "scripts": {
+    "build": "tsc && tsc-alias -p tsconfig.aliases.json",
+    "build:watch": "tsc --watch",
+    "test": "mocha --timeout 5000 --require ts-node/register test/**/*.test.ts"
+  },
+  "dependencies": {
+    "ethers": "^6.6.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.3.3",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "ganache": "^7.8.0",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.7",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.6"
+  }
+}
