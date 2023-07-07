@@ -10,7 +10,19 @@
     "gas",
     "fee",
     "estimator",
-    "tracker"
+    "tracker",
+    "legacy",
+    "eip-1559",
+    "eip1559",
+    "eip",
+    "1559",
+    "eth",
+    "ethers",
+    "priority",
+    "fee",
+    "EVM",
+    "max fee",
+    "base fee"
   ],
   "author": {
     "name": "Zubair Khalid",

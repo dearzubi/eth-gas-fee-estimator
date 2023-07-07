@@ -2,6 +2,16 @@
 
 A small utility to estimate the gas fee for the Ethereum transactions. It supports legacy fee and EIP-1559 fee.
 
+## Features
+1. Prevents your transaction being underpriced in high network demand situations.
+2. Ensures your transaction remains marketable for six consecutive 100% full blocks. (Read more at: [A Definitive Guide to Ethereum EIP-1559 Gas Fee Calculations: Base Fee, Priority Fee, Max Fee](https://www.blocknative.com/blog/eip-1559-fees))
+ > Note: Beacause of this feature, the max gas fee estimation may be higher than the actual gas fee required/used by the transaction and displayed by other services like etherscan. The extra gas fee will be refunded to the sender's account after the transaction is mined.
+3. Provides customizable gas tracker to get three different fee estimations. (slow, average and fast).
+4. Gets the gas fee estimation from the blockchain nodes itself. (No third party API calls like etherscan).
+5. Supports both legacy fee and EIP-1559 fee.
+6. Options to add a percentage buffer to the maxPriorityFee.
+7. Supports all EVM compatible blockchains e.g. Ethereum, Binance Smart Chain, Polygon, etc.
+
 ## Installation
 
 You can install this package using npm:
